@@ -5,11 +5,15 @@ import 'angular-sanitize';
 import 'angular-ui-router';
 import 'ionic-scripts';
 import Angular from 'angular';
+import Loader from 'angular-ecmascript/module-loader';
 import { Meteor } from 'meteor/meteor';
  
 // Modules
- 
-const App = 'Waiterapp';
+import ChatsCtrl from '../controllers/chats.controller';
+import CalendarFilter from '../filters/calendar.filter';
+import RoutesConfig from './routes';
+
+ const App = 'Waiterapp';
  
 // App
 Angular.module(App, [
@@ -17,6 +21,11 @@ Angular.module(App, [
   'ionic'
 ]);
  
+new Loader(App)
+    .load(ChatsCtrl)
+    .load(CalendarFilter)
+    .load(RoutesConfig);
+
 // Startup
 if (Meteor.isCordova) {
   Angular.element(document).on('deviceready', onReady);

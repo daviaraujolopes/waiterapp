@@ -1,0 +1,13 @@
+Para acessar settings no código 
+Disponível no client:
+var ridiculous = Meteor.settings.public.imARidiculousHumanBeing;
+
+Server:
+var cowboys = Meteor.settings.private.hackTheGibson; 
+var dontPanic = Meteor.settings.imStillServerOnly;
+
+Para carregar as variaveis, ao iniciar a aplicação PRD:
+meteor --settings settings_production.json
+
+Para carregar as variaveis, ao iniciar a aplicação DEV:
+meteor --settings settings.json
